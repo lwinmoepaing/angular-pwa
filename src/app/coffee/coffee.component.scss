@@ -1,0 +1,39 @@
+.wrapper-container {
+    max-width: 580px;
+    margin: 0 auto;
+}
+
+.coffee-container {
+    margin: 15px 14px;
+}
+
+mat-form-field{
+    width: 100%;
+    margin: 2px 0; 
+}
+
+.tasting-title {
+    margin: 0;
+
+}
+
+.width-100 {
+    width: 100%;
+}
+
+// Form Height
+::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.4em 0px !important;}
+::ng-deep .mat-form-field-label-wrapper { top: -1.5em; }
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    transform: translateY(-1.1em) scale(.75);
+    width: 133.33333%;
+}
+
+::ng-deep .mat-form-field-wrapper{
+    padding-bottom: 4px;
+ }
+
+ .mat-button-base {
+    margin: 8px 8px 8px 0;
+  }

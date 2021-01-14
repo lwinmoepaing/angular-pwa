@@ -28,11 +28,15 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/manifest.json",
+              "src/icons"
             ],
             "styles": [
               "src/styles.scss"
             ],
+            "ngswConfigPath": "src/ngsw-config.json",
+            "serviceWorker": true,
             "scripts": []
           },
           "configurations": {
@@ -127,5 +131,8 @@
       }
     }
   },
-  "defaultProject": "lynda-pwa"
+  "defaultProject": "lynda-pwa",
+  "cli": {
+    "analytics": "c06bed5e-df4e-48fb-80b6-7d0f9321f933"
+  }
 }

@@ -1,0 +1,84 @@
+<form class="wrapper-container">
+
+    <!-- Coffee Information Start -->
+    <mat-card class="coffee-container">
+        <mat-card-title class="tasting-title"> Coffee Information </mat-card-title>
+        <mat-form-field appearance="outline" style="padding: 0">
+            <mat-label> Coffee Name </mat-label>
+            <input matInput name="name" [(ngModel)]="coffee.name" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label> Coffee Category </mat-label>
+            <mat-select name="types" [(ngModel)]="coffee.type">
+                <mat-option *ngFor="let type of types" [value]="type">{{type}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </mat-card>
+    <!-- Coffee Information Finished -->
+
+    <!-- Place Information Start -->
+    <mat-card class="coffee-container">
+        <mat-card-title class="tasting-title"> Place Information </mat-card-title>
+        <mat-form-field appearance="outline">
+            <mat-label> Place Name </mat-label>
+            <input matInput name="place" [(ngModel)]="coffee.place" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label> Address Name </mat-label>
+            <input matInput name="address" [(ngModel)]="coffee.location.address" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label> City Name </mat-label>
+            <input matInput name="city" [(ngModel)]="coffee.location.city" />
+        </mat-form-field>
+   
+    </mat-card>
+    <!-- Place Information Finished -->
+
+    
+    <!-- Tase Rating Information Start -->
+    <mat-card class="coffee-container">
+        <mat-card-title class="tasting-title"> Rating </mat-card-title>
+        <mat-slider max="10" thumbLabel thickInterval="1" name="rating" [(ngModel)]="coffee.rating"></mat-slider>
+        <mat-slide-toggle color="primary" #tastingSelector (change)="tastRatingChange(tastingSelector.checked)" [checked]="tastingEnabled"> Tasting Rating </mat-slide-toggle>
+
+        <div *ngIf="tastingSelector.checked">
+            <mat-card-subtitle class="tasting-title"> Aroma </mat-card-subtitle>
+            <mat-slider class="width-100" max="10" thumbLabel thickInterval="1" name="tasting-aroma" [(ngModel)]="coffee.tastingRating.aroma"></mat-slider>
+    
+            <mat-card-subtitle class="tasting-title"> Body </mat-card-subtitle>
+            <mat-slider class="width-100" max="10" thumbLabel thickInterval="1" name="tasting-body" [(ngModel)]="coffee.tastingRating.body"></mat-slider>
+    
+            <mat-card-subtitle class="tasting-title"> Flavor </mat-card-subtitle>
+            <mat-slider class="width-100" max="10" thumbLabel thickInterval="1" name="tasting-flavor" [(ngModel)]="coffee.tastingRating.flavor"></mat-slider>
+    
+            <mat-card-subtitle class="tasting-title"> Intensity </mat-card-subtitle>
+            <mat-slider class="width-100" max="10" thumbLabel thickInterval="1" name="tasting-intensity" [(ngModel)]="coffee.tastingRating.intensity"></mat-slider>
+    
+            <mat-card-subtitle class="tasting-title"> Sweetness </mat-card-subtitle>
+            <mat-slider class="width-100" max="10" thumbLabel thickInterval="1" name="tasting-sweetness" [(ngModel)]="coffee.tastingRating.sweetness"></mat-slider>
+    
+            <mat-card-subtitle class="tasting-title"> Aftertaste </mat-card-subtitle>
+            <mat-slider class="width-100" max="10" thumbLabel thickInterval="1" name="tasting-aftertaste" [(ngModel)]="coffee.tastingRating.aftertaste"></mat-slider>
+        </div>
+        
+        <div>
+            <mat-form-field appearance="outline" >
+                <mat-label> Notes</mat-label>
+                <textarea matInput name="notes" [(ngModel)]="coffee.notes"></textarea>
+            </mat-form-field>
+        </div>
+    </mat-card>
+    <!-- Tase Rating Information Finished -->
+
+    <!-- Coffee Form Actions -->
+    <div class="coffee-container"> 
+        <button (click)="cancel()" mat-raised-button  >Cancel</button>
+        <button (click)="save()"     mat-raised-button color="primary">Save</button>
+    </div>
+    <!-- Coffee Form Actions Finished -->
+
+</form>
