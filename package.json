@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "http-server -p 8080 -c-1 dist/lynda-pwa",
+    "start": "http-server -p 5000 -c-1 dist/lynda-pwa",
     "dev": "ng serve",
     "build": "ng build --prod",
     "test": "ng test",
