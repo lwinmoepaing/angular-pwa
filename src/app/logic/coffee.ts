@@ -1,5 +1,7 @@
 import { TastingRating } from './tasting-rating';
 import { PlaceLocation } from './place-location';
+import { generate } from 'short-uuid';
+
 
 export class Coffee {
     _id?: string;
@@ -13,6 +15,7 @@ export class Coffee {
         public location: PlaceLocation = new PlaceLocation(),
         public tastingRating: TastingRating = new TastingRating(), 
     ) {
+        this._id = this._id ? this._id : generate()
     }
 }
  

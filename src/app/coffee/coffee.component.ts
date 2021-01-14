@@ -76,7 +76,6 @@ export class CoffeeComponent implements OnInit, OnDestroy{
   save (): void {
     this._coffeeDataService.save(this.coffee, (result) => {
       if (result) {
-        console.log('Result: ', result)
         this.router.navigate(['/'])
       }
     })
