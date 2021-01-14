@@ -24,12 +24,12 @@ export class DataService {
    */
   getCoffee(coffeeId: string, callback: (param: Coffee ) => void ) {
 
-    callback(this.coffeeList.find(coffee => coffee._id === coffeeId) as any)
+    // callback(this.coffeeList.find(coffee => coffee._id === coffeeId) as any)
 
-    // this.http.get(`${this.coffeeUrl}/${coffeeId}`)
-    //   .subscribe((res: any) => {
-    //     callback(res)
-    //   })
+    this.http.get(`${this.coffeeUrl}/${coffeeId}`)
+      .subscribe((res: any) => {
+        callback(res)
+      })
   }
 
   /**
@@ -40,12 +40,12 @@ export class DataService {
    */
   getList(callback: (param: Coffee[] ) => void ): void {
     
-    callback(this.coffeeList)
-    // this.http.get(`${this.coffeeUrl}`)
-    //   .subscribe((res: any) => {
-    //     const data: Coffee[] = res
-    //     callback(data)
-    //   })
+    // callback(this.coffeeList)
+    this.http.get(`${this.coffeeUrl}`)
+      .subscribe((res: any) => {
+        const data: Coffee[] = res
+        callback(data)
+      })
   }
 
   /**
@@ -56,27 +56,27 @@ export class DataService {
    */
   save(coffee: Coffee, callback: (isSave: boolean) => void): void {
 
-    const isExist = this.coffeeList.some(existCoffee => coffee._id === existCoffee._id)
+    // const isExist = this.coffeeList.some(existCoffee => coffee._id === existCoffee._id)
 
-    if (isExist) {
-      const findIndex = this.coffeeList.findIndex(data => data._id === coffee._id)
-      this.coffeeList[findIndex] = coffee
-    } else {
-      this.coffeeList.push(coffee)
-    }
-    
-    callback(true)
-
-    // if (coffee._id) {
-    //   this.http.put(`${this.coffeeUrl}/${coffee._id}`, coffee)
-    //     .subscribe((res: any) => {
-    //     })
+    // if (isExist) {
+    //   const findIndex = this.coffeeList.findIndex(data => data._id === coffee._id)
+    //   this.coffeeList[findIndex] = coffee
     // } else {
-    //   this.http.post(`${this.coffeeUrl}`, coffee)
-    //     .subscribe((res: any) => {
-    //       callback(true)
-    //     })
+    //   this.coffeeList.push(coffee)
     // }
+    
+    // callback(true)
+
+    if (coffee._id) {
+      this.http.put(`${this.coffeeUrl}/${coffee._id}`, coffee)
+        .subscribe((res: any) => {
+        })
+    } else {
+      this.http.post(`${this.coffeeUrl}`, coffee)
+        .subscribe((res: any) => {
+          callback(true)
+        })
+    }
 
   }
 }

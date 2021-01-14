@@ -15,7 +15,7 @@ export class Coffee {
         public location: PlaceLocation = new PlaceLocation(),
         public tastingRating: TastingRating = new TastingRating(), 
     ) {
-        this._id = this._id ? this._id : generate()
+        // this._id = this._id ? this._id : generate()
     }
 }
  
