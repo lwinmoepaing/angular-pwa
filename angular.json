@@ -30,13 +30,14 @@
               "src/favicon.ico",
               "src/assets",
               "src/manifest.json",
-              "src/icons"
+              "src/icons",
+              "src/manifest.webmanifest"
             ],
             "styles": [
               "src/styles.scss"
             ],
-            "ngswConfigPath": "src/ngsw-config.json",
             "serviceWorker": true,
+            "ngswConfigPath": "src/ngsw-config.json",
             "scripts": []
           },
           "configurations": {
@@ -65,7 +66,9 @@
                   "maximumWarning": "2kb",
                   "maximumError": "4kb"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "src/ngsw-config.json"
             }
           }
         },
@@ -95,7 +98,8 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/manifest.webmanifest"
             ],
             "styles": [
               "src/styles.scss"
